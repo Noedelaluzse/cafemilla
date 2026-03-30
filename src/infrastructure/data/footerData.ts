@@ -45,7 +45,7 @@ export const contactItems = [
   },
   {
     href: null,
-    text: '+52 (55) 1234-5678',
+    text: '+52 (99) 8136-7313',
     type: 'phone' as const,
   },
 ]

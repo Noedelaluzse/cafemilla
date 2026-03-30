@@ -1,7 +1,6 @@
-@import "tailwindcss";
-@source "../presentation/**/*.{ts,tsx}";
-@source "../infrastructure/**/*.{ts,tsx}";
-@source "../application/**/*.{ts,tsx}";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --brown-primary: #6E3F2A;
