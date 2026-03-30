@@ -1,6 +1,6 @@
 'use client'
 
-import { CafeLocation } from '@/src/infrastructure'
+import { CafeLocation } from '@/infrastructure'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, Clock, Phone } from 'lucide-react'
 

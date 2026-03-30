@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Stars from './Stars'
-import { Testimonial } from '@/src/infrastructure/data/testimonials'
+import { Testimonial } from '@/infrastructure'
 
 interface TestimonialCardProps {
   testimonial: Testimonial

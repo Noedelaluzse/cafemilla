@@ -1,5 +1,4 @@
-import { Sense } from "@/src/infrastructure"
-
+import { Sense } from "@/infrastructure"
 interface SenseContentProps {
   sense: Sense
 }
