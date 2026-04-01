@@ -1,10 +1,15 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import LeafIcon from './LeafIcon'
 import { stats } from '@/infrastructure/data/heroData'
+import { useState } from 'react'
 
 export default function HeroText() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE}`
+  const videoUrl = process.env.NEXT_PUBLIC_VIDEO_URL;
+  
   return (
     <div>
       {/* Badge */}
@@ -73,16 +78,57 @@ export default function HeroText() {
         transition={{ duration: 0.7, delay: 0.65 }}
         className="flex flex-col sm:flex-row gap-4 mb-12"
       >
-        <button className="btn-primary text-sm px-8 py-4">
-          <span>Comprar ahora</span>
-        </button>
-        <a href="#beneficios">
-          <button className="btn-outline text-sm px-8 py-4">
-            Descubrir producto
-          </button>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary text-sm px-8 py-4 text-center"
+        >
+          WhatsApp
         </a>
+        
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="btn-outline text-sm px-8 py-4 text-center"
+        >
+          Conocenos
+        </button>
       </motion.div>
+      {/* Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden"
+            >
+              {/* Botón cerrar */}
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-3 right-3 z-10 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/80 transition"
+              >
+                ✕
+              </button>
 
+              <iframe
+                src={`${videoUrl}?autoplay=1`}
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* Stats */}
       <motion.div
         initial={{ opacity: 0 }}

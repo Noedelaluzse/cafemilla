@@ -9,6 +9,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE}`
+
   return (
     <AnimatePresence>
       {open && (
@@ -30,9 +32,15 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 {link.label}
               </a>
             ))}
-            <button className="btn-primary w-full mt-2" onClick={onClose}>
-              <span>Comprar ahora</span>
-            </button>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="btn-primary w-full mt-2 text-center"
+            >
+              WhatsApp
+            </a>
           </div>
         </motion.div>
       )}

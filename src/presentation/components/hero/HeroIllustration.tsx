@@ -1,16 +1,18 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import CoffeeCup from './CoffeeCup'
 
 export default function HeroIllustration() {
+  const heroImageUrl = process.env.NEXT_PUBLIC_HERO_IMAGE_URL ?? ''
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.85, rotate: -5 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
       transition={{ duration: 1.0, delay: 0.4, ease: 'easeOut' }}
-      className="relative flex items-center justify-center"
+      className="relative flex items-center justify-center w-[480px] h-[480px]"
     >
       {/* Glow */}
       <div className="absolute inset-0 flex items-center justify-center">
@@ -27,9 +29,16 @@ export default function HeroIllustration() {
       />
       <div className="absolute w-96 h-96 rounded-full border border-[#EAAA00]/10" />
 
-      {/* Taza */}
-      <div className="relative w-72 h-80 float-anim">
-        <CoffeeCup />
+      {/* Imagen principal centrada */}
+      <div className="absolute inset-0 flex items-end justify-center z-10 float-anim">
+        <Image
+          src={heroImageUrl}
+          alt="CafeMilla"
+          width={797}
+          height={952}
+          className="object-contain w-[420px] h-auto"
+          priority
+        />
       </div>
 
       {/* Badge flotante izquierdo */}
@@ -37,7 +46,7 @@ export default function HeroIllustration() {
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.0, duration: 0.6 }}
-        className="absolute top-12 -left-4 bg-white shadow-lg rounded-2xl px-4 py-3 flex items-center gap-2"
+        className="absolute top-12 -left-16 bg-white shadow-lg rounded-2xl px-4 py-3 flex items-center gap-2 z-20"
       >
         <span className="text-xl">🌿</span>
         <div>
@@ -51,7 +60,7 @@ export default function HeroIllustration() {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-16 -right-4 bg-[#4A2C20] rounded-2xl px-4 py-3 flex items-center gap-2"
+        className="absolute bottom-8 -right-16 bg-[#4A2C20] rounded-2xl px-4 py-3 flex items-center gap-2 z-20"
       >
         <span className="text-xl">☕</span>
         <div>
@@ -65,10 +74,22 @@ export default function HeroIllustration() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.6 }}
-        className="absolute top-1/2 -right-8 bg-[#ED8B00] rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
+        className="absolute top-1/2 -right-8 bg-[#ED8B00] rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-20"
       >
         <Star size={16} fill="white" className="text-white" />
       </motion.div>
+
+      {/* Badge superior derecho */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.6 }}
+        className="absolute top-4 -right-16 bg-[#ED8B00]/10 border border-[#ED8B00]/30 rounded-2xl px-4 py-3 z-20"
+      >
+        <div className="text-xs font-semibold text-[#ED8B00]">100% Natural</div>
+        <div className="text-[10px] text-[#8B6040]">Sin cafeína</div>
+      </motion.div>
+
     </motion.div>
   )
 }

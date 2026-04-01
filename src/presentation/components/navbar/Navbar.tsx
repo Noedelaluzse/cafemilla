@@ -13,6 +13,7 @@ import { useScrolled } from '@/application/useScrolled'
 export default function Navbar() {
   const scrolled = useScrolled(50)
   const [open, setOpen] = useState(false)
+  const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE}`
 
   return (
     <>
@@ -33,9 +34,14 @@ export default function Navbar() {
 
           {/* CTA desktop */}
           <div className="hidden md:flex items-center gap-3">
-            <button className="btn-outline text-xs py-2.5 px-5">
-              Comprar
-            </button>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline text-xs py-2.5 px-5 text-center"
+              >
+                WhatsApp
+              </a>
           </div>
 
           {/* Hamburger mobile */}
