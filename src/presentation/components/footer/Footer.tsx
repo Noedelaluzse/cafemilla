@@ -5,7 +5,7 @@ import FooterLinks from "./FooterLinks";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A0D07] text-[#C9A87E] pt-16 pb-8">
+    <footer id="contacto" className="bg-[#1A0D07] text-[#C9A87E] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">

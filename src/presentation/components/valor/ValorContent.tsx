@@ -31,16 +31,15 @@ export default function ValorContent() {
       </h2>
 
       <p className="text-[#5C3D2E] text-lg leading-relaxed mb-6">
-        CAFEMILLA es una bebida funcional elaborada con semillas mexicanas
-        tostadas, especialmente la{' '}
+        CAFEMILLA es una bebida funcional de origen mexicano, elaborada
+        especialmente con la{' '}
         <strong className="text-[#4A2C20]">semilla de Ramón</strong>. Una
         planta que ha nutrido a las culturas mesoamericanas por siglos.
       </p>
 
       <p className="text-[#6B4C3B] leading-relaxed mb-10">
-        El resultado es una bebida con el aroma, el color y el ritual del
-        café tradicional, pero con todos sus beneficios y ninguno de sus
-        efectos negativos.
+        El resultado es una bebida con el aroma, color y el ritual del
+        café tradicional, sin ser café.
       </p>
 
       {/* Card destacada */}

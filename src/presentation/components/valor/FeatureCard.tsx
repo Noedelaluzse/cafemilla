@@ -62,7 +62,7 @@ export default function FeatureCard({ feature, index }: FeatureCardProps) {
               left: 0,
               right: 0,
               padding: '16px',
-              background: 'linear-gradient(to top, rgba(46,26,16,0.9), transparent)',
+              background: 'linear-gradient(to top, rgba(46,26,16,0.4), transparent)',
             }}
           >
             <div className="flex items-center gap-2">

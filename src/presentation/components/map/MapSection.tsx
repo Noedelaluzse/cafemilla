@@ -47,12 +47,15 @@ export default function MapSection() {
             className="text-4xl lg:text-5xl font-black text-[#4A2C20]"
             style={{ fontFamily: 'Playfair Display, serif' }}
           >
-            Estamos en
+            Estamos en los
             <br />
             <span style={{ fontStyle: 'italic', color: '#ED8B00' }}>
-              todo Cancún
+              siguientes bazares
             </span>
           </h2>
+          <p className="text-base text-[#6B4C3B] mt-4 max-w-md mx-auto">
+            Verifica los días que estaremos cerca de ti
+          </p>
         </motion.div>
 
         {/* ── Grid ── */}

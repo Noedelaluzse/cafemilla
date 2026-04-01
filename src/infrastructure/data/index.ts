@@ -6,3 +6,4 @@ export * from './benefits';
 export * from './testimonials';
 export * from './features';
 export * from './heroData';
+export * from './products';
