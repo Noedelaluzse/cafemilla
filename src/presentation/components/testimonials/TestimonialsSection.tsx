@@ -27,7 +27,7 @@ export default function TestimonialsSection() {
         <TestimonialsHeader />
 
         <div className="max-w-4xl mx-auto">
-          <TestimonialCard testimonial={testimonials[current]} index={current} />
+          <TestimonialCard testimonial={testimonials[current]} index={current} key={current}/>
           <CarouselControls
             current={current}
             onSelect={setCurrent}
