@@ -14,10 +14,26 @@ const LeafletMap = dynamic(() => import('./LeafletMap'), {
   ssr: false,
   loading: () => (
     <div
-      className="flex items-center justify-center bg-[#EDE4D5] text-[#8B6040] text-sm"
+      className="relative bg-[#EDE4D5] overflow-hidden"
       style={{ height: '520px' }}
     >
-      Cargando mapa…
+      {/* Skeleton animado */}
+      <div className="absolute inset-0 animate-pulse bg-[#E0D0BC]" />
+
+      {/* Líneas simulando calles */}
+      <div className="absolute inset-0 flex flex-col justify-center items-center gap-4 opacity-20">
+        <div className="w-3/4 h-1 bg-[#8B6040] rounded" />
+        <div className="w-1/2 h-1 bg-[#8B6040] rounded" />
+        <div className="w-2/3 h-1 bg-[#8B6040] rounded" />
+      </div>
+
+      {/* Indicador central */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-[#ED8B00]/30 animate-pulse flex items-center justify-center">
+          <div className="w-5 h-5 rounded-full bg-[#ED8B00]/60" />
+        </div>
+        <span className="text-[#8B6040] text-sm font-medium">Cargando mapa…</span>
+      </div>
     </div>
   ),
 })

@@ -3,9 +3,11 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
+import { useState } from 'react'
 
 export default function HeroIllustration() {
   const heroImageUrl = process.env.NEXT_PUBLIC_HERO_IMAGE_URL ?? ''
+  const [loaded, setLoaded] = useState(false)
 
   return (
     <motion.div
@@ -31,14 +33,19 @@ export default function HeroIllustration() {
 
       {/* Imagen principal centrada */}
       <div className="absolute inset-0 flex items-end justify-center z-10 float-anim">
+        {/* Skeleton */}
+        {!loaded && (
+          <div className="w-[420px] h-[500px] rounded-3xl animate-pulse bg-[#E0D0BC]/30" />
+        )}
         <Image
           src={heroImageUrl}
           alt="CafeMilla"
           width={797}
           height={952}
-          className="object-contain w-[420px] h-auto"
+          className={`object-contain w-[420px] transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ height: 'auto' }}
           priority
+          onLoad={() => setLoaded(true)}
         />
       </div>
 

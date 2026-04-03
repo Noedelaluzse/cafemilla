@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Product } from '@/infrastructure/data/products'
+import { useState } from 'react'
 
 interface ProductCardProps {
   product: Product
@@ -10,6 +11,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, index }: Readonly<ProductCardProps>) {
+  const [loaded, setLoaded] = useState(false)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -23,7 +26,7 @@ export default function ProductCard({ product, index }: Readonly<ProductCardProp
         background: '#1A0D07',
       }}
     >
-      {/* Acento superior del color del producto */}
+      {/* Acento superior */}
       <div
         className="w-full h-1"
         style={{ background: `linear-gradient(90deg, ${product.color}, transparent)` }}
@@ -31,16 +34,23 @@ export default function ProductCard({ product, index }: Readonly<ProductCardProp
 
       {/* Imagen */}
       <div
-        className="flex items-center justify-center p-6"
-        style={{ background: `radial-gradient(circle at center, ${product.color}15, #1A0D07 70%)` }}
+        className="flex items-center justify-center p-6 relative"
+        style={{ background: `radial-gradient(circle at center, ${product.color}15, #1A0D07 70%)`, minHeight: '280px' }}
       >
+        {!loaded && (
+          <div
+            className="absolute inset-0 animate-pulse"
+            style={{ background: `${product.color}15` }}
+          />
+        )}
         <Image
           src={product.image}
           alt={product.name}
           width={240}
           height={280}
-          className="object-contain group-hover:scale-105 transition-transform duration-500"
+          className={`object-contain transition-all duration-500 group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ height: 'auto' }}
+          onLoad={() => setLoaded(true)}
         />
       </div>
 
@@ -63,7 +73,6 @@ export default function ProductCard({ product, index }: Readonly<ProductCardProp
         </p>
 
         <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          
           <a
             href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE}%20-%20${encodeURIComponent(product.name)}`}
             target="_blank"
