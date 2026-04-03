@@ -1,4 +1,3 @@
-import { Mail, Phone } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 export interface FooterLink {
