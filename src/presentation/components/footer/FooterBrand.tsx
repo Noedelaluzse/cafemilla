@@ -20,13 +20,16 @@ const socialIcons: Record<string, React.ReactNode> = {
 }
 
 export default function FooterBrand() {
+  const companyLogoUrl = process.env.NEXT_PUBLIC_LOGO_URL ?? null;
+  const companyName = "CAFEMILLA";
+
   return (
     <div className="md:col-span-2">
       {/* Logo */}
       <div className="flex items-center gap-3 mb-4">
         <div className="w-9 h-9 rounded-full overflow-hidden relative flex-shrink-0">
           <Image
-            src="https://res.cloudinary.com/dqvcmjkue/image/upload/v1774138226/Valentina_-_Gui%CC%81a_para_etiqueta_fpwsmp.png"
+            src={companyLogoUrl!}
             alt="Logo Cafemilla"
             fill
             className="object-cover"
@@ -37,7 +40,7 @@ export default function FooterBrand() {
           className="font-black text-xl tracking-[0.15em] text-[#F7F0E6]"
           style={{ fontFamily: 'Playfair Display, serif' }}
         >
-          CAFEMILLA
+          {companyName}
         </span>
       </div>
 

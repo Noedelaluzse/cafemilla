@@ -53,15 +53,18 @@ export default function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center gap-3 px-10 py-4 text-sm font-bold tracking-wider uppercase rounded-sm text-[#4A2C20]"
-              style={{ background: 'linear-gradient(135deg, #EAAA00, #ED8B00)' }}
-            >
-              Comprar CAFEMILLA
-              <ArrowRight size={16} />
-            </motion.button>
+          <motion.a
+            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center justify-center gap-3 px-10 py-4 text-sm font-bold tracking-wider uppercase rounded-sm text-[#4A2C20]"
+            style={{ background: 'linear-gradient(135deg, #EAAA00, #ED8B00)' }}
+          >
+            Comprar CAFEMILLA
+            <ArrowRight size={16} />
+          </motion.a>
           </div>
 
           <CTATrustBadges />

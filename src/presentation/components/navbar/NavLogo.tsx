@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function NavLogo() {
   return (
-    <a href="#" className="flex items-center gap-3 group">
+    <Link href="/" className="flex items-center gap-3 group">
       <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center group-hover:opacity-80 transition-opacity duration-300 relative">
         <Image
           src="https://res.cloudinary.com/dqvcmjkue/image/upload/v1774138226/Valentina_-_Gui%CC%81a_para_etiqueta_fpwsmp.png"
@@ -19,6 +20,6 @@ export default function NavLogo() {
       >
         CAFEMILLA
       </span>
-    </a>
+    </Link>
   )
 }

@@ -1,10 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
-import { patchLeafletIcons, createCustomIcon } from './leafletIcons'
+import {  createCustomIcon } from './leafletIcons'
 import FlyToLocation from './FlyToLocation'
 import { CafeLocation, locations } from '@/infrastructure'
 
@@ -17,11 +16,7 @@ interface LeafletMapProps {
 /**
  * Pure Leaflet map. Loaded client-side only via dynamic() in MapSection.
  */
-export default function LeafletMap({ activeId, active, onSelect }: LeafletMapProps) {
-  useEffect(() => {
-    patchLeafletIcons()
-  }, [])
-
+export default function LeafletMap({ activeId, active, onSelect }: Readonly<LeafletMapProps>) {
   return (
     <MapContainer
       center={[21.1619, -86.8515]}

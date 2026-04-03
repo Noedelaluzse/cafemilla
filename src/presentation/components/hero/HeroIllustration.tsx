@@ -37,6 +37,7 @@ export default function HeroIllustration() {
           width={797}
           height={952}
           className="object-contain w-[420px] h-auto"
+          style={{ height: 'auto' }}
           priority
         />
       </div>

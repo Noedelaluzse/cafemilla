@@ -11,7 +11,7 @@ interface FeatureCardProps {
   index: number
 }
 
-export default function FeatureCard({ feature, index }: FeatureCardProps) {
+export default function FeatureCard({ feature, index }: Readonly<FeatureCardProps>) {
   const [ref, inView] = useReveal('0px 0px -80px 0px')
 
   return (

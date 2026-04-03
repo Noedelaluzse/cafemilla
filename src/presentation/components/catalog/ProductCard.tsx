@@ -9,7 +9,7 @@ interface ProductCardProps {
   index: number
 }
 
-export default function ProductCard({ product, index }: ProductCardProps) {
+export default function ProductCard({ product, index }: Readonly<ProductCardProps>) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -40,6 +40,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
           width={240}
           height={280}
           className="object-contain group-hover:scale-105 transition-transform duration-500"
+          style={{ height: 'auto' }}
         />
       </div>
 

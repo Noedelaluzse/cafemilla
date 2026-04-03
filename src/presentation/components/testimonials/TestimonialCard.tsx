@@ -10,7 +10,7 @@ interface TestimonialCardProps {
   index: number
 }
 
-export default function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
+export default function TestimonialCard({ testimonial, index }: Readonly<TestimonialCardProps>) {
   return (
     <motion.div
       key={index}
@@ -24,7 +24,7 @@ export default function TestimonialCard({ testimonial, index }: TestimonialCardP
         className="absolute top-6 right-8 text-9xl font-black leading-none opacity-10 pointer-events-none select-none"
         style={{ fontFamily: 'Playfair Display, serif', color: '#6E3F2A' }}
       >
-        "
+        &ldquo;
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
@@ -63,7 +63,7 @@ export default function TestimonialCard({ testimonial, index }: TestimonialCardP
               fontSize: '1.35rem',
             }}
           >
-            "{testimonial.text}"
+            $&ldquo;{testimonial.text}&rdquo;
           </p>
         </div>
 
