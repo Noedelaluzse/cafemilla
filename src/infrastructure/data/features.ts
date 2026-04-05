@@ -22,17 +22,17 @@ export const features: Feature[] = [
     image: 'https://res.cloudinary.com/dqvcmjkue/image/upload/q_auto/f_auto/v1774228876/WhatsApp_Image_2026-03-21_at_22.15.16_vuar7b.jpg',
   },
   {
-    icon: '🇲🇽',
-    title: 'Origen mexicano',
-    desc: 'Las semillas de Ramón han sido usadas por culturas mesoamericanas por siglos. Hoy las traemos a tu taza.',
-    color: '#EAAA00',
-    image: 'https://res.cloudinary.com/dqvcmjkue/image/upload/q_auto/f_auto/v1775020198/hombrecito_en_el_campo_mfubpd.png',
-  },
-  {
     icon: '❤️',
     title: 'Cuida tu salud',
     desc: 'Sin acidez, sin taquicardia, sin insomnio. Una alternativa funcional que respeta tu cuerpo.',
     color: '#4A2C20',
     image: 'https://res.cloudinary.com/dqvcmjkue/image/upload/q_auto/f_auto/v1775019778/cuida_tu_salud_opwiek.png',
+  },
+  {
+    icon: '🇲🇽',
+    title: 'Origen mexicano',
+    desc: 'Las semillas de Ramón han sido usadas por culturas mesoamericanas por siglos. Hoy las traemos a tu taza.',
+    color: '#EAAA00',
+    image: 'https://res.cloudinary.com/dqvcmjkue/image/upload/q_auto/f_auto/v1775020198/hombrecito_en_el_campo_mfubpd.png',
   },
 ]
